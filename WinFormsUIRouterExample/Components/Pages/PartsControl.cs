@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using WinFormsUIRouterExample.Models;
 
 namespace WinFormsUIRouterExample.Components.Pages
 {
@@ -26,8 +27,9 @@ namespace WinFormsUIRouterExample.Components.Pages
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            var part = new Part { Id = 1, Number = "P01", Name = "Part 1" };
             // Redirect the main panel to EditPartControl
-            uiRouter.Redirect<EditPartControl>();
+            uiRouter.Redirect<EditPartControl>(part);
         }
     }
 }

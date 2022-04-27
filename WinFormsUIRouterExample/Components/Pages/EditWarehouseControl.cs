@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using WinFormsUIRouterExample.Models;
 
 namespace WinFormsUIRouterExample.Components.Pages
 {
-    public partial class EditWarehouseControl : UserControl
+    public partial class EditWarehouseControl : UserControl, IRouting
     {
         private UIRouter uiRouter;
 
@@ -16,6 +17,14 @@ namespace WinFormsUIRouterExample.Components.Pages
         {
             InitializeComponent();
             this.uiRouter = uiRouter;
+        }
+
+        public void SetArguments(params object[] arguments)
+        {
+            var warehouse = (Warehouse)arguments[0];
+            tbNumber.Text = warehouse.Number;
+            tbName.Text = warehouse.Name;
+            tbAddress.Text = warehouse.Address;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

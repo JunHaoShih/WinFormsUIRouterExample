@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using WinFormsUIRouterExample.Models;
 
 namespace WinFormsUIRouterExample.Components.Pages
 {
@@ -26,8 +27,9 @@ namespace WinFormsUIRouterExample.Components.Pages
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            var warehouse = new Warehouse { Id = 1, Name = "Warehouse1", Number = "W01", Address = "Somewhere in the world" };
             // Redirect the main panel to EditWarehouseControl
-            uiRouter.Redirect<EditWarehouseControl>();
+            uiRouter.Redirect<EditWarehouseControl>(warehouse);
         }
     }
 }
